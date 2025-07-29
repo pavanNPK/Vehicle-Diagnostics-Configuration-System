@@ -1,0 +1,100 @@
+<div class="mainVehicles">
+  <div class="header d-flex flex-wrap align-items-center justify-content-end w-100 mb-3">
+    <div class="row w-100 gx-2 gy-2">
+
+      <!-- Search by Vehicle ID -->
+      <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
+        <nb-form-field>
+          <nb-icon icon="search-outline" nbPrefix class="searchIcon"></nb-icon>
+          <input
+            nbInput
+            type="text"
+            class="form-control"
+            placeholder="Search by vehicle ID"
+            [(ngModel)]="searchVehicleText"
+            (input)="searchVehicle($event, 'vehicleId')"
+          />
+        </nb-form-field>
+      </div>
+
+      <!-- Search by Error Code -->
+      <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
+        <nb-form-field>
+          <nb-icon icon="search-outline" nbPrefix class="searchIcon"></nb-icon>
+          <input
+            nbInput
+            type="text"
+            class="form-control"
+            placeholder="Search by error code"
+            [(ngModel)]="searchErrorText"
+            (input)="searchVehicle($event, 'errorCode')"
+          />
+        </nb-form-field>
+      </div>
+
+      <!-- From Date -->
+      <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
+        <nb-form-field>
+          <input
+            nbInput
+            type="date"
+            class="form-control"
+            placeholder="From Date"
+            [(ngModel)]="searchFrom"
+          />
+        </nb-form-field>
+      </div>
+
+      <!-- To Date + Buttons -->
+      <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 d-flex align-items-center gap-2">
+        <nb-form-field class="flex-grow-1">
+          <input
+            nbInput
+            type="date"
+            class="form-control"
+            placeholder="To Date"
+            [(ngModel)]="searchTo"
+          />
+        </nb-form-field>
+
+        <!-- Filter Button -->
+        <button
+          nbButton
+          size="medium"
+          class="rounded globalBTN"
+          *ngIf="searchVehicleText || searchErrorText || searchFrom || searchTo"
+          (click)="filterVehicle()"
+        >
+          <nb-icon icon="checkmark"></nb-icon>
+        </button>
+
+        <!-- Clear Button -->
+        <button
+          nbButton
+          size="medium"
+          class="rounded globalBTN"
+          *ngIf="searchVehicleText || searchErrorText || searchFrom || searchTo"
+          (click)="clearSearchFilters()"
+        >
+          <nb-icon icon="refresh-outline"></nb-icon>
+        </button>
+      </div>
+
+      <!-- Add Vehicle Button -->
+      <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
+        <button
+          nbButton
+          size="medium"
+          class="rounded globalBTN w-100"
+          [routerLink]="['/vehicles/add']"
+        >
+          <nb-icon icon="plus-outline"></nb-icon>
+          Add Vehicle
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vehicle List Component -->
+  <app-list-vehicles></app-list-vehicles>
+</div>

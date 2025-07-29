@@ -1,0 +1,84 @@
+<div class="mainVehiclesForm card p-3">
+  <h5 class="m-0">
+    <nb-icon icon="arrow-back" class="cursor-pointer-npk" (click)="goBack()"></nb-icon>
+    Add Vehicle</h5>
+  <hr />
+
+  <form [formGroup]="vehicleForm" (ngSubmit)="addVehicle()">
+    <div class="formControlsData row">
+      <!-- Vehicle ID -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <label for="vehicleId" class="form-label label">Vehicle Id*</label>
+        <input
+          type="text"
+          nbInput
+          class="form-control"
+          formControlName="vehicleId"
+          placeholder="Enter Vehicle Id"
+          [ngClass]="{ 'is-invalid': (f.vehicleId.touched || submitted) && f.vehicleId.errors }"
+        />
+        <div *ngIf="(f.vehicleId.touched || submitted) && f.vehicleId.errors" class="invalid-feedback d-block">
+          <div *ngIf="f.vehicleId.errors?.['required']">Vehicle Id is required</div>
+        </div>
+      </div>
+
+      <!-- Error Code -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <label for="errorCode" class="form-label label">Error Code*</label>
+        <input
+          type="text"
+          nbInput
+          class="form-control"
+          formControlName="errorCode"
+          placeholder="Enter Error Code"
+          [ngClass]="{ 'is-invalid': (f.errorCode.touched || submitted) && f.errorCode.errors }"
+        />
+        <div *ngIf="(f.errorCode.touched || submitted) && f.errorCode.errors" class="invalid-feedback d-block">
+          <div *ngIf="f.errorCode.errors?.['required']">Error Code is required</div>
+        </div>
+      </div>
+
+      <!-- From Date -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <label for="from" class="form-label label">From*</label>
+        <input
+          nbInput
+          class="form-control"
+          readonly
+          formControlName="from"
+          [nbDatepicker]="datepickerFrom"
+          placeholder="From Date"
+          [ngClass]="{ 'is-invalid': (f.from.touched || submitted) && f.from.errors }"
+        />
+        <nb-datepicker [min]="minDate" (dateChange)="setMinDate($event)" #datepickerFrom></nb-datepicker>
+        <div *ngIf="(f.from.touched || submitted) && f.from.errors" class="invalid-feedback d-block">
+          <div *ngIf="f.from.errors?.['required']">From Date is required</div>
+        </div>
+      </div>
+
+      <!-- To Date -->
+      <div class="col-12 col-sm-6 col-md-3" *ngIf="f.from.value">
+        <label for="to" class="form-label label">To*</label>
+        <input
+          nbInput
+          class="form-control"
+          readonly
+          formControlName="to"
+          [nbDatepicker]="datepickerTo"
+          placeholder="To Date"
+          [ngClass]="{ 'is-invalid': (f.to.touched || submitted) && f.to.errors }"
+        />
+        <nb-datepicker [min]="f.from.value" #datepickerTo></nb-datepicker>
+        <div *ngIf="(f.to.touched || submitted) && f.to.errors" class="invalid-feedback d-block">
+          <div *ngIf="f.to.errors?.['required']">To Date is required</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end mt-3">
+      <button nbButton status="primary" [disabled]="!vehicleForm.valid" type="submit">
+        <nb-icon icon="plus-outline"></nb-icon> Save
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+<div class="data-container">
+  <div class="OrderTable">
+    <table class="w-100 dataTableCss">
+      <thead>
+      <tr class="d-flex">
+        <th class="col-1">#</th>
+        <th class="col-3">Vehicle Id</th>
+        <th class="col-2">Error Code</th>
+        <th class="col-3">From</th>
+        <th class="col-3">To</th>
+      </tr>
+      </thead>
+      @if (!isLoading && !hasVehicles) {
+        <app-no-data></app-no-data>
+      } @else {
+        <tbody>
+          @for (item of vehiclesStoreData?.data; track item._id; let i = $index) {
+            <tr class="d-flex">
+              <td class="col-1">{{ i + 1 }}</td>
+              <td class="col-3">{{ item.vehicleId }}</td>
+              <td class="col-2">{{ item.errorCode }}</td>
+              <td class="col-3">{{ item.from | date: 'dd-MM-yyyy' }}</td>
+              <td class="col-3">{{ item.to | date: 'dd-MM-yyyy' }}</td>
+            </tr>
+          }
+        </tbody>
+      }
+    </table>
+  </div>
+</div>

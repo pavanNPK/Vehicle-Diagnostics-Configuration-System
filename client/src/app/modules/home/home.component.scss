@@ -1,0 +1,11 @@
+::ng-deep{
+  .nb-theme-default{
+    nb-layout-column{
+      padding: 1.5rem !important;
+    }
+    nb-layout-header nav{
+      width: 100%;
+      background: white;
+    }
+  }
+}

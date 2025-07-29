@@ -1,0 +1,42 @@
+@forward "@nebular/theme/styles/theming";
+@use "@nebular/theme/styles/theming" as *;
+@use "@nebular/theme/styles/themes/default";
+
+//this is for dropdown selection
+nb-select.appearance-outline.status-basic{
+  background: #f7f9fc !important;
+  .select-button{
+    background: #f7f9fc !important;
+    color: black !important;
+    min-width: auto !important;
+    border: 1px solid #e4e9f2 !important;
+    span{
+      font-size: 13px;
+    }
+  }
+}
+nb-option:focus.selected {
+  background-color: #000 !important;
+  color: #fff;
+}
+.nb-theme-default [nbInput].status-basic {
+  background-color: #f7f9fc !important;
+  border-color: #e4e9f2 !important;
+}
+.nb-theme-default [nbInput].status-basic.is-invalid {
+  padding-right: 2rem !important;
+}
+.nb-theme-default [nbInput].status-basic:focus {
+  background-color: #f7f9fc !important;
+  border-color: #e4e9f2 !important;
+}
+.nb-theme-default nb-form-field .nb-form-field-addon-basic-highlight{
+  color: #8f9bb3 !important
+}
+.nb-theme-default nb-option.selected{
+  background-color: #000 !important;
+  color: #fff;
+}
+.multi-line-tooltip {
+  white-space: pre-line;
+}

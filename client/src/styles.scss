@@ -1,0 +1,140 @@
+@use "themes" as *;
+@use "@nebular/theme/styles/globals" as *;
+@import "themes";
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@include nb-install() {
+  @include nb-theme-global();
+}
+@import "bootstrap/scss/bootstrap";
+
+*{
+  font-family: 'Poppins', sans-serif !important;
+}
+button, button:focus{
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+.cursor-pointer-npk{
+  cursor: pointer !important;
+}
+input::-webkit-input-placeholder { /* Edge */
+  font-family: 'Poppins', sans-serif !important;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: 'Poppins', sans-serif !important;
+}
+input, textarea, select, button:focus {
+  box-shadow: none !important;
+}
+input::placeholder {
+  font-family: 'Poppins', sans-serif !important;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input::placeholder, textarea::placeholder {
+  font: 13px 'Poppins', sans-serif !important;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  z-index: -10;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e4e4e4;
+  cursor: pointer;
+  border-radius: 0.15625rem;
+}
+.globalDialogBox{
+  position: relative;
+  inset: 0;
+  .globalDialogBoxCardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .globalDialogBoxCardBody{
+    text-align: center;
+    display: inline-table;
+    .globalDialogBoxIcon{
+      position: absolute;
+      top: -40px;
+      left: 40%;
+      button{
+        border: none !important;
+        background: black !important;
+        padding: 20px !important;
+        border-radius: 50% !important;
+        height: 5rem !important;
+        width: 5rem !important;
+        nb-icon{
+          width: 2rem !important;
+          height: 2rem !important
+        }
+      }
+    }
+    .globalDialogBoxText{
+      margin-top: 2rem
+    }
+  }
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+.dataTableCss thead tr{
+  background: #2E3C6F!important;
+  padding: 10px;
+  border-radius: 5px!important;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  color: white;
+}
+
+.dataTableCss tbody tr{
+  background: #f7f9fc!important;
+  padding: 10px;
+  border-radius: 5px!important;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.dataTableCss thead th{
+  border: transparent!important;
+}
+
+.dataTableCss td, .table th{
+  border: transparent!important;
+}
+
+.dataTableCss tbody tr td{
+  word-break: break-word;
+
+  nb-icon{
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+}
+.globalBTN{
+  background: #2E3C6F !important;
+  color: #fff !important;
+}
