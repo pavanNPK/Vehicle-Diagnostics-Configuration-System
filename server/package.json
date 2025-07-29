@@ -1,0 +1,33 @@
+{
+  "name": "vehicle-diagnostics",
+  "version": "1.0.0",
+  "description": "Vehicle Diagnostics & Configuration",
+  "main": "server-side/index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "type": "module",
+  "keywords": ["NPK", "Vehicle", "Diagnostics", "Node.js", "MongoDB"],
+  "author": "Pavan Kumar Narendravarapu",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "compression": "^1.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^4.21.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "mongoose": "^8.16.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "xss-clean": "^0.1.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/swagger-ui-express": "^4.1.8",
+    "nodemon": "^3.1.10"
+  }
+}
